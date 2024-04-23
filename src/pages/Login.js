@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {styled} from '@mui/system';
 import {Button} from '@mui/material';
 import {useAuthContext} from "@asgardeo/auth-react";
@@ -27,11 +27,10 @@ const LoginPage = () => {
 
     return (
         <Container>
-            <LoginButton variant="contained" onClick={() => signIn()}>
+            <LoginButton variant="contained" onClick={() => window.location.href = "/auth/login"}>
                 Login
             </LoginButton>
         </Container>
     );
 };
-
 export default LoginPage;
