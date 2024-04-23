@@ -12,7 +12,7 @@ const config = {
     signOutRedirectURL: window.configs.auth.signOutRedirectURL,
     clientID: window.configs.auth.clientID,
     baseUrl: window.configs.auth.baseUrl,
-    scope: ["openid", "profile", "do_all"]
+    scope: ["openid", "profile"]
 };
 
 console.log("==========INDEX========1========")

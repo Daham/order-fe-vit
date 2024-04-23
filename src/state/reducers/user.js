@@ -1,19 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 const sliceId = 'user';
 
 const userSlice = createSlice({
     name: sliceId,
     initialState: {
-        data: null,
-        isLoggedIn: false,//sessionStorage.getItem("logged-in"),
+        userDetails: localStorage.getItem("userDetails"),
+        isLoggedIn: false,
     },
     reducers: {
-        logInUser: (state, { payload }) => {
-            state.data = {
-                userId: null,//JSON.parse(payload?.identities)?.[0]?.userId,
-                email: payload?.email,
-            };
+        logInUser: (state, {payload}) => {
+            state.userDetails = payload;
             state.isLoggedIn = true;
         },
         logOutUser: (state) => {
@@ -23,7 +20,7 @@ const userSlice = createSlice({
     },
 });
 
-export const { logInUser, logOutUser } = userSlice.actions;
+export const {logInUser, logOutUser} = userSlice.actions;
 
 export const userSelectors = {
     isLoggedIn: (state) => state.user.isLoggedIn,
