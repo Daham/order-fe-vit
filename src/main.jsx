@@ -12,7 +12,7 @@ const config = {
     signOutRedirectURL: window.configs.auth.signOutRedirectURL,
     clientID: window.configs.auth.clientID,
     baseUrl: window.configs.auth.baseUrl,
-    scope: ["openid", "profile"]
+    scope: ["openid", "profile", "do_all"]
 };
 
 console.log("==========INDEX========1========")
@@ -22,12 +22,12 @@ console.log("==========INDEX========2========")
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <AuthProvider config={config}>
-            <Provider store={store}>
-                <BrowserRouter>
+        <Provider store={store}>
+            <BrowserRouter>
+                <AuthProvider config={config}>
                     <App/>
-                </BrowserRouter>
-            </Provider>
-        </AuthProvider>
+                </AuthProvider>
+            </BrowserRouter>
+        </Provider>
     </React.StrictMode>
 );
